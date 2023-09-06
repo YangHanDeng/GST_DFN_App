@@ -25,3 +25,12 @@ To run the docker, we have to make pulseaudio and NVIDIA GPU available to contai
 1. cd DFN-Shell
 2. ./install.sh
 3. run the DFN_pipeline.sh
+    ```
+    Usage: ./DFN_pipeline.sh -i Input -o Output
+            -i: Stream URL/"Mic"/File
+                    To play a file: use FILE:///PATH_TO_FILE/FILENAME
+                    To use microphone, use "mic"
+            -o: "Device"/File
+                    To write into the file, use relative/ absolute path.
+                    To play on sound device, use "device".
+    ```
