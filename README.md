@@ -16,7 +16,7 @@ To run the docker, we have to make pulseaudio and NVIDIA GPU available to contai
 
     docker run --rm --name pulsecontainer --env PULSE_SERVER=tcp:$Hostip:34567 \
         --gpus all --runtime=nvidia \
-        imagename
+        yanghand/gst_dfn_shell
 
     Containerip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' pulsecontainer)
 
