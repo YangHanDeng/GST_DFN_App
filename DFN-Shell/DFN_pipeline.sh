@@ -32,8 +32,12 @@ sink="$(tr [A-Z] [a-z] <<< "$output")"
 
 gst_command="gst-launch-1.0 -e "
 
-if [ -z $input ] || [ -z output ]; then
-	helpFunction
+if [ -z $input ]; then
+	src="mic"
+fi
+
+if [ -z output ]; then
+	sink="device"
 fi
 
 if [[ $src == "mic" ]]; then
