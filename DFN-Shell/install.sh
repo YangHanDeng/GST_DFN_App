@@ -2,20 +2,20 @@
 
 ubuntu_version=$(lsb_release -a 2>/dev/null | grep Description | cut -f 2 -d ' ')
 
-sudo apt install -y python3-pip curl git
+apt install -qqy python3-pip curl git
 
 # if we need to sink rtsp
 # sudo apt install gstreamer1.0-rtsp
 
-sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio gstreamer1.0-python3-plugin-loader
+apt-get install -qqy libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio gstreamer1.0-python3-plugin-loader
 
 rust=$(rustc --version)
 if [[ -z $rust ]]; then
-	curl https://sh.rustup.rs -sSf | sh
+	curl https://sh.rustup.rs -sSf | sh -s -- -y
 	source "$HOME/.cargo/env"
 fi
 
-pip install deepfilternet
+pip install -q deepfilternet
 
 if [[ $ubuntu_version == 20.04* ]]
 then
@@ -43,6 +43,5 @@ ptexist=$(pip list | grep torch)
 if [[ -z $ptexist ]]; then
 	echo "please install your own pytorch to move forward"
 fi
-
 
 

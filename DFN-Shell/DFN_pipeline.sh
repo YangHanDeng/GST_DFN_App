@@ -54,5 +54,3 @@ fi
 echo $gst_command
 
 eval $gst_command
-
-
