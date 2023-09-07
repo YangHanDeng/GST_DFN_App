@@ -8,6 +8,6 @@ WORKDIR DFN-Shell
 RUN chmod +x *.sh && ./install.sh
 RUN pip install -q torch torchvision torchaudio
 
-ENV PATH="$PATH:$PWD"
-ENV GST_PLUGIN_PATH="$PWD/plugin"
+ENV PATH="$PATH:/DFN-Shell"
+ENV GST_PLUGIN_PATH="/DFN-Shell/plugin"
 CMD ["DFN_pipeline"]
