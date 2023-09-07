@@ -34,7 +34,7 @@ fi
 echo ""
 echo "export GST_PLUGIN_PATH=$PWD/plugin:$GST_PLUGIN_PATH" >> $HOME/.bashrc
 echo "export PATH=\$PWD:$PATH" >> $HOME/.bashrc
-ln DFN_pipeline.sh DFN_pipeline
+ln DFN_App.sh DFN_App
 echo "To get started you may need to restart your current shell."
 echo "This will reload your GST_PLUGIN_PATH and PATH"
 echo "To configure your current shell, run:"

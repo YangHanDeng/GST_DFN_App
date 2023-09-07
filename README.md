@@ -1,4 +1,4 @@
-# Gst_DFN_Shell
+# Gst_DFN_App
 ## About me
 This is a package about using DeepFilterNet on Gstreamer with shell script
 
@@ -11,12 +11,12 @@ To run the docker, we have to make pulseaudio and NVIDIA GPU available to contai
 - [setup Nvidia GPU](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 - run:
     ```
-    docker build -t="yanghand/gst_dfn_shell" .
+    docker build -t="yanghand/gst_dfn_app" .
     Hostip="$(ip -4 -o a| grep docker0 | awk '{print $4}' | cut -d/ -f1)"
 
     docker run --rm -ti --name pulsecontainer --env PULSE_SERVER=tcp:$Hostip:34567 \
         --gpus all --runtime=nvidia \
-        yanghand/gst_dfn_shell
+        yanghand/gst_dfn_app
 
     Containerip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' pulsecontainer)"
 
@@ -27,12 +27,12 @@ To run the docker, we have to make pulseaudio and NVIDIA GPU available to contai
     pactl list short modules -> list all modules
     pactl unload-module [Module Number/Name]
     ```
-## Use the shell directly on your machine
-1. cd DFN-Shell
+## Use the App directly on your machine
+1. cd DFN-App
 2. ./install.sh
-3. run the DFN_pipeline.sh
+3. run the DFN_App.sh
     ```
-    Usage: ./DFN_pipeline.sh -i Input -o Output
+    Usage: ./DFN_App.sh -i Input -o Output
             -i: Stream URL/"Mic"/File
                     To play a file: use FILE:///PATH_TO_FILE/FILENAME
                     To use microphone, use "mic"
