@@ -22,6 +22,11 @@ To run the docker, we have to make pulseaudio and NVIDIA GPU available to contai
 
     pactl load-module module-native-protocol-tcp  port=34567 auth-ip-acl=$Containerip
     ```
+- To unload pactl module: 
+    ```
+    pactl list short modules -> list all modules
+    pactl unload-module [Module Number/Name]
+    ```
 ## Use the shell directly on your machine
 1. cd DFN-Shell
 2. ./install.sh
