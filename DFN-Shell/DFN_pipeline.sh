@@ -36,7 +36,7 @@ if [ -z $input ]; then
 	src="mic"
 fi
 
-if [ -z output ]; then
+if [ -z $output ]; then
 	sink="device"
 fi
 
