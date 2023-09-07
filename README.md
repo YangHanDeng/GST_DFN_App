@@ -11,14 +11,14 @@ To run the docker, we have to make pulseaudio and NVIDIA GPU available to contai
 - [setup Nvidia GPU](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 - run:
     ```
-    sudo docker build -t="yanghand/gst_dfn_shell" .
+    docker build -t="yanghand/gst_dfn_shell" .
     Hostip="$(ip -4 -o a| grep docker0 | awk '{print $4}' | cut -d/ -f1)"
 
-    sudo docker run --rm -ti --name pulsecontainer --env PULSE_SERVER=tcp:$Hostip:34567 \
+    docker run --rm -ti --name pulsecontainer --env PULSE_SERVER=tcp:$Hostip:34567 \
         --gpus all --runtime=nvidia \
         yanghand/gst_dfn_shell
 
-    Containerip="$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' pulsecontainer)"
+    Containerip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' pulsecontainer)"
 
     pactl load-module module-native-protocol-tcp  port=34567 auth-ip-acl=$Containerip
     ```
